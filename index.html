@@ -15,6 +15,7 @@
   
   <!-- Custom core CSS -->
   <link href="css/navbar_custom.css" rel="stylesheet">
+  <link href="css/position_custom.css" rel="stylesheet">
 
 </head>
 
@@ -48,19 +49,157 @@
     </div>
   </nav>
 
+
+
+
+
   <!-- Page Content -->
   <div class="container">
     <div class="row">
-      <div class="col-lg-12 text-center">
-        <h1 class="mt-5">A Bootstrap 4 Starter Template</h1>
-        <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
-        <ul class="list-unstyled">
-          <li>Bootstrap 4.3.1</li>
-          <li>jQuery 3.4.1</li>
-        </ul>
+      <div class="col-lg-12 text-left">
+	  
+        <h1 class="mt-5">SUCHMASCHINE</h1>
+        <p class="lead">Bitte fülle die folgenden Felder aus:</p>
+        
+		
+		
+		<form>
+			<div class="input-group input-group-sm mb-3">
+				  <div class="input-group-prepend">
+					<span class="input-group-text" id="inputGroup-sizing-sm">Title (z.B. Mathematik): </span>
+				  </div>
+				  <input type="text" class="form-control form-control-sm" placeholder="(optional)">
+			</div>
+			
+			<div class="input-group input-group-sm mb-3">
+				  <div class="input-group-prepend">
+					<span class="input-group-text" id="inputGroup-sizing-sm">Datum: </span>
+				  </div>
+				  <input type="date" class="form-control form-control-sm" >
+			</div>
+			
+			
+			<div class="input-group input-group-sm mb-3">
+			  <div class="input-group-prepend">
+				<label class="input-group-text" for="inputGroupSelect01">Raumtyp:</label>
+			  </div>
+			  <select class="custom-select" id="inputGroupSelect01">
+				<option selected>Wähle aus...</option>
+				<option value="1">frei</option>
+				<option value="2">belegt</option>
+			  </select>
+			</div>
+			
+			
+			<div class="input-group">
+				  <div class="input-group-prepend">
+					<span class="input-group-text">Zeit: </span>
+				  </div>
+				  <input type="time" aria-label="First name" class="form-control">
+			</div>
+			<br>
+			<div class="input-group input-group-sm mb-3">
+				  <div class="input-group-prepend">
+					<span class="input-group-text" id="inputGroup-sizing-sm">Dauer (hh:mm): </span>
+				  </div>
+				  <input type="time" class="form-control form-control-sm">
+			</div>
+			
+			<button type="button" class="btn btn-outline-success">SUCHEN</button>
+			
+		</form>
+
       </div>
+	  
+
+	  <div class="col-lg-12 text-center">
+		
+		<table class="table table-bordered table-bottom table-top">
+		  <thead>
+			<tr>
+			  <th scope="col">#</th>
+			  <th scope="col">Datum</th>
+			  <th scope="col">Titel</th>
+			  <th scope="col">Von</th>
+			  <th scope="col">Bis</th>
+			  <th scope="col">Raum</th>
+			  <th scope="col">Action</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <th scope="row">1</th>
+			  <td>10.05.2019</td>
+			  <td>Mathematik</td>
+			  <td>12:15</td>
+			  <td>13.45</td>
+			  <td>C 365</td>
+			  <td>belegen</td>
+			</tr>
+			<tr>
+			  <th scope="row">2</th>
+			  <td>10.05.2019</td>
+			  <td>Mathematik</td>
+			  <td>12:15</td>
+			  <td>13.45</td>
+			  <td>C 365</td>
+			  <td>belegen</td>
+			</tr>
+			<tr>
+			  <th scope="row">3</th>
+			  <td>10.05.2019</td>
+			  <td>Mathematik</td>
+			  <td>12:15</td>
+			  <td>13.45</td>
+			  <td>C 365</td>
+			  <td>belegen</td>
+			</tr>
+			<tr>
+			  <th scope="row">4</th>
+			  <td>10.05.2019</td>
+			  <td>Mathematik</td>
+			  <td>12:15</td>
+			  <td>13.45</td>
+			  <td>C 365</td>
+			  <td>belegen</td>
+			  <tr>
+			  <th scope="row">5</th>
+			  <td>10.05.2019</td>
+			  <td>Mathematik</td>
+			  <td>12:15</td>
+			  <td>13.45</td>
+			  <td>C 365</td>
+			  <td>belegen</td>
+			</tr>
+			</tr>
+		  </tbody>
+		</table>
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  </div>
+	  
+	  
+	  
+	  
+	  
+	  
     </div>
   </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   <!-- Footer -->
