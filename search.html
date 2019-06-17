@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>HTW Berlin | Room Finder</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Custom core CSS -->
+  <link href="css/navbar_custom.css" rel="stylesheet">
+  <link href="css/position_custom.css" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  
+</head>
+
+<body>
+	
+	  <!-- Navigation -->
+	  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom static-top">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">HTW Berlin | Room Finder</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="navbar-toggler-icon"></span>
+	      </button>
+	      <div class="collapse navbar-collapse" id="navbarResponsive">
+	        <ul class="navbar-nav ml-auto">
+	          
+	          <li class="nav-item active">
+	            <a class="nav-link" href="search.html">Search</a>
+	          </li>
+	          <li class="nav-item">
+	            <a class="nav-link" href="#">Meine Liste</a>
+	          </li>
+	          <li class="nav-item">
+	            <a class="nav-link" href="profile.html">Mein Profil</a>
+	          </li>
+	          <li class="nav-item">
+	            <a class="nav-link" href="#">LOGOUT</a>
+	          </li>
+	          
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+	
+	
+	
+	
+	<!-- Page Content -->
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-left">
+		  
+		        <h1 class="mt-5">SUCHMASCHINE</h1>
+		        <p class="lead">Bitte fülle die folgenden Felder aus:</p>
+		         
+				
+				
+				<form action="/search" method="POST" modelAttribute="eventSearchForm">
+					
+					<div class="input-group input-group-sm mb-3">
+					  <div class="input-group-prepend">
+						<label class="input-group-text" for="inputGroupSelect01">Option:</label>
+					  </div>
+					  <select class="custom-select" id="inputGroupSelect01">
+						<option value="1">Ich suche einen Modul</option>
+						<option value="2">Ich suche einen freien Raum</option>
+					  </select>
+					</div>
+					
+					<div class="input-group input-group-sm mb-3">
+						  <div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroup-sizing-sm">Titel* : </span>
+						  </div>
+						  <input path="title" type="text" class="form-control form-control-sm" placeholder="z.B. Mathe oder Mathematik" required="required" >
+					</div>
+					
+					<div class="input-group input-group-sm mb-3">
+						  <div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroup-sizing-sm">Datum: </span>
+						  </div>
+						  <input path="date" type="date" class="form-control form-control-sm">
+					</div>
+					
+					
+					<div class="input-group input-group-sm mb-3">
+						  <div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroup-sizing-sm">Dozent: </span>
+						  </div>
+						  <input path="lecturer" type="text" class="form-control form-control-sm" placeholder="(optional)" >
+					</div>
+
+					
+					<div class="input-group input-group-sm mb-3">
+						  <div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroup-sizing-sm">Ergebnisanzahl* : </span>
+						  </div>
+						  <input path="number" type="number" class="form-control form-control-sm" min="1" max="100" placeholder="von 1 bis 100" required="required" >
+					</div>
+					
+					<span class="small">
+						*Pflichtfelder
+					</span> 
+					<br>
+					
+					<input type="submit" class="btn btn-outline-success" value="SUCHEN">
+					
+				</form>
+	
+			</div>
+			
+			
+			<div class="col-lg-12 text-center">
+				
+				
+					<table class="table table-bordered table-bottom table-top table-responsive-sm">
+						<thead>
+							<tr>
+							  <th scope="col">Date</th>
+							  <th scope="col">Titel</th>
+							  <th scope="col">Von</th>
+							  <th scope="col">Bis</th>
+							  <th scope="col">Raum</th>
+							  <th scope="col">Dozent</th>
+							</tr>
+						</thead>
+						<tbody>
+
+									<tr>
+									  <td>15.05.2019</td>
+									  <td><a target="_blank" rel="noopener noreferrer" href="https://lsf.htw-berlin.de/qisserver/rds?state=wsearchv&search=2&veranstaltung.veranstid=0">Mathematik B SL U</a></td>
+									  <td>11:00</td>
+									  <td>12:00</td>
+									  <td>WH C 614</td>
+									  <td>Prof. Dr. Dozent Kdkjhfgkjdhfg</td>
+									</tr>
+
+						</tbody> 
+					</table>
+				  	
+
+
+			
+	  		</div>
+			
+			
+			
+			
+
+		</div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	  <!-- Footer -->
+	  <footer class="py-3 bg-dark fixed-bottom">
+	    <div class="container">
+	      <p class="m-0 text-center text-white">HTW Berlin &copy; Room Finder 2019</p>
+	    </div>
+	    <!-- /.container -->
+	  </footer>
+	
+	  <!-- Bootstrap core JavaScript -->
+	  <script src="jquery/jquery.slim.min.js"></script>
+	  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+	
+	
+	
+</body>
+</html>
