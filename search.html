@@ -58,24 +58,32 @@
 	<!-- Page Content -->
 	<div class="container">
 		<div class="row">
+			
 			<div class="col-lg-12 text-left">
-		  
-		        <h1 class="mt-5">SUCHMASCHINE</h1>
+			
+				<h1 class="mt-5">SUCHMASCHINE</h1>
 		        <p class="lead">Bitte fülle die folgenden Felder aus:</p>
 		         
 				
-				
-				<form action="/search" method="POST" modelAttribute="eventSearchForm">
-					
-					<div class="input-group input-group-sm mb-3">
+				<div class="input-group input-group-sm mb-3">
 					  <div class="input-group-prepend">
-						<label class="input-group-text" for="inputGroupSelect01">Option:</label>
+						<label class="input-group-text" for="inputGroupSelect">Option:</label>
 					  </div>
-					  <select class="custom-select" id="inputGroupSelect01">
+					  <select class="custom-select" id="inputGroupSelect">
 						<option value="1">Ich suche einen Modul</option>
 						<option value="2">Ich suche einen freien Raum</option>
 					  </select>
-					</div>
+				</div>
+			
+			</div>
+			
+			
+			
+			
+			<!-- Search Form for Events START-->
+			<div class="col-lg-12 text-left" id="searchEventForm">
+
+				<form action="/search" method="POST" modelAttribute="eventSearchForm">
 					
 					<div class="input-group input-group-sm mb-3">
 						  <div class="input-group-prepend">
@@ -115,17 +123,15 @@
 					<input type="submit" class="btn btn-outline-success" value="SUCHEN">
 					
 				</form>
-	
-			</div>
-			
-			
-			<div class="col-lg-12 text-center">
+
+				
+				<div class="col-lg-12 text-center">
 				
 				
 					<table class="table table-bordered table-bottom table-top table-responsive-sm">
 						<thead>
 							<tr>
-							  <th scope="col">Date</th>
+							  <th scope="col">Datum</th>
 							  <th scope="col">Titel</th>
 							  <th scope="col">Von</th>
 							  <th scope="col">Bis</th>
@@ -146,11 +152,92 @@
 
 						</tbody> 
 					</table>
-				  	
-
-
-			
+				</div>
+				
 	  		</div>
+			<!-- Search Form for Events END-->
+			
+			
+			
+			<!-- Search Form for Free Room START-->
+			<div class="col-lg-12 text-left" id="searchFreeRoomForm" style="display:none;">
+
+				<form action="/search" method="POST" modelAttribute="eventSearchForm">
+					
+					<div class="input-group input-group-sm mb-3">
+						  <div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroup-sizing-sm">Titel* : </span>
+						  </div>
+						  <input path="title" type="text" class="form-control form-control-sm" placeholder="z.B. Mathe oder Mathematik" required="required" >
+					</div>
+					
+					<div class="input-group input-group-sm mb-3">
+						  <div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroup-sizing-sm">Datum: </span>
+						  </div>
+						  <input path="date" type="date" class="form-control form-control-sm">
+					</div>
+					
+					
+					<div class="input-group input-group-sm mb-3">
+						  <div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroup-sizing-sm">Dozent: </span>
+						  </div>
+						  <input path="lecturer" type="text" class="form-control form-control-sm" placeholder="(optional)" >
+					</div>
+
+					
+					<div class="input-group input-group-sm mb-3">
+						  <div class="input-group-prepend">
+							<span class="input-group-text" id="inputGroup-sizing-sm">Ergebnisanzahl* : </span>
+						  </div>
+						  <input path="number" type="number" class="form-control form-control-sm" min="1" max="100" placeholder="von 1 bis 100" required="required" >
+					</div>
+					
+					<span class="small">
+						*Pflichtfelder
+					</span> 
+					<br>
+					
+					<input type="submit" class="btn btn-outline-success" value="SUCHEN">
+					
+				</form>
+
+				
+				<div class="col-lg-12 text-center">
+				
+				
+					<table class="table table-bordered table-bottom table-top table-responsive-sm">
+						<thead>
+							<tr>
+							  <th scope="col">Datum</th>
+							  <th scope="col">Titel</th>
+							  <th scope="col">Von</th>
+							  <th scope="col">Bis</th>
+							  <th scope="col">Raum</th>
+							  <th scope="col">Dozent</th>
+							</tr>
+						</thead>
+						<tbody>
+
+									<tr>
+									  <td>15.05.2019</td>
+									  <td>Free</td>
+									  <td>11:00</td>
+									  <td>12:00</td>
+									  <td>WH C 614</td>
+									  <td>Prof. Dr. Dozent Kdkjhfgkjdhfg</td>
+									</tr>
+
+						</tbody> 
+					</table>
+				</div>
+				
+	  		</div>	
+			<!-- Search Form for Free Room END-->
+			
+			
+			
 			
 			
 			
@@ -168,7 +255,7 @@
 	
 	
 	  <!-- Footer -->
-	  <footer class="py-3 bg-dark ">
+	  <footer class="py-3 bg-dark fixed-bottom">
 	    <div class="container">
 	      <p class="m-0 text-center text-white">HTW Berlin &copy; Room Finder 2019</p>
 	    </div>
@@ -178,6 +265,17 @@
 	  <!-- Bootstrap core JavaScript -->
 	  <script src="jquery/jquery.slim.min.js"></script>
 	  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+	  
+	  <script type = "text/javascript">
+		var mySearchEventForm = document.getElementById("searchEventForm");
+		var mySearchFreeRoomForm = document.getElementById("searchFreeRoomForm");
+		
+		document.getElementById("inputGroupSelect").onchange = function(){
+		  mySearchEventForm.style.display = (this.selectedIndex == 0) ? "block" : "none";
+		  mySearchFreeRoomForm.style.display = (this.selectedIndex == 1) ? "block" : "none";
+		}
+		
+	  </script>
 	
 	
 	
